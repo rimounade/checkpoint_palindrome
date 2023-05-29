@@ -1,0 +1,37 @@
+/*fonction palindrome*/
+FUNCTION Palindrome(ch:STRING, i:INTEGER,p:INTEGER) : BOOLEAN
+
+BEGIN
+    IF (p-i<1) THEN
+        RETURN TRUE ;
+    END_IF
+
+    // IF (p-i=0) THEN
+    //     RETURN TRUE ;
+    // END_IF
+ 
+    IF (ch[i]<>ch[p]) THEN
+        Palindrome:=FALSE;/*resultat de la fonction */
+    ELSE
+        Palindrome:=Palindrome(ch,i+1,p-1);/*resultat de la fonction*/
+    END_IF
+    
+    
+END 
+/*algorithme*/
+ALGORITHM algo_palindrome
+VAR
+    mot:STRING;
+    result := BOOLEAN;
+    i,p : INTEGER;
+BEGIN
+   i=1; 
+   p:= mot.length;
+   result := Palindrome(mot,i,p)
+    IF (result = TRUE) THEN
+        Write (mot, "est palindrome");
+    ELSE
+       Write(mot,"non palindrome");
+    END_IF
+END
+
